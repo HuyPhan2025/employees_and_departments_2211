@@ -14,4 +14,11 @@ class Department
   def expense(amount)
     @expenses += amount
   end 
+
+  def employees_expense(amount)
+    employee_who_spend = @employees.map do |employee|
+      employee.name
+    end
+    employee_who_spend
+  end
 end

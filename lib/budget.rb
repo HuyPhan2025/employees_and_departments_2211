@@ -26,6 +26,5 @@ class Budget
       employee.salary
     end
     salary_array
-    # require'pry';binding.pry
   end
 end
