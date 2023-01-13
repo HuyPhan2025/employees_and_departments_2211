@@ -17,4 +17,11 @@ class Budget
       department.expenses < amount
     end
   end
+
+  def employees_salaries
+    salaries_array = @employees.map do |employee|
+      employee.salary
+    end
+    salaries_array
+  end
 end

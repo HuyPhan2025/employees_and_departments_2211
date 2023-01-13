@@ -14,11 +14,4 @@ class Department
   def expense(amount)
     @expenses += amount
   end 
-
-  def employees_salaries
-    salaries_array = @employees.map do |employee|
-      employee.salary
-    end
-    salaries_array
-  end
 end
