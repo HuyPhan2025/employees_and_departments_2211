@@ -1,5 +1,6 @@
 require './lib/department'
 require './lib/employee'
+require './lib/budget'
 
 RSpec.describe Department do
   describe "#initialize" do
@@ -41,6 +42,23 @@ RSpec.describe Department do
       customer_service.expense(25)  
 
       expect(customer_service.expenses).to eq(125)
+    end
+  end
+  describe '#employees salaries' do
+    it 'can list all employees salaries' do
+      budget = Budget.new
+
+      customer_service = Department.new("Customer Service")
+
+      budget.add_department(customer_service)
+
+      bobbi = Employee.new({name: "Bobbi Jaeger", age: "30", salary: "100000"})
+      aaron = Employee.new({name: "Aaron Tanaka", age: "25", salary: "90000"})  
+
+      customer_service.hire(bobbi)
+      customer_service.hire(aaron)
+
+      expect(customer_service.employees_salaries).to eq([100000, 90000])
     end
   end
 end
