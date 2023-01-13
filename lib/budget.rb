@@ -13,15 +13,19 @@ class Budget
   end
 
   def less_than(amount)
-    @departments.find do |department|
-      department.expenses < amount
+    @departments.filter_map do |department|
+      department if department.expenses < amount
     end
   end
 
   def employees_salaries
-    salaries_array = @employees.map do |employee|
+    employees = @departments.flat_map do |department|
+      department.employees
+    end
+    salary_array = employees.map do |employee|
       employee.salary
     end
-    salaries_array
+    salary_array
+    # require'pry';binding.pry
   end
 end
